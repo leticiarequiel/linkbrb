@@ -209,8 +209,9 @@ html,body{opacity:1!important;visibility:visible!important}
     .then(response => response.json())
     .then(data => {
       if (data.items && data.items.length > 0) {
-        const ultimoVideoUrl = data.items[0].link;
-        const videoId = ultimoVideoUrl.split('v=')[1]?.split('&')[0] || data.items[0].guid.split('video:')[1];
+        const videoData = data.items.find(item => !item.link.includes('/shorts/')) || data.items[0];
+        const ultimoVideoUrl = videoData.link;
+        const videoId = ultimoVideoUrl.split('v=')[1]?.split('&')[0] || videoData.guid.split('video:')[1];
         
         if (videoId) {
           document.getElementById('youtube-container').innerHTML = `
