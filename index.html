@@ -333,4 +333,47 @@ html,body{opacity:1!important;visibility:visible!important}
       `;
     });
 })();
-</script></div></div><div class="mt-12 text-center" style="color: #888; font-size: 10px; font-family: sans-serif; opacity: 0.6; letter-spacing: 0.5px; margin-top: 40px; padding-bottom: 20px;">44.997.331/0001-13<br/>FICTUS CONTENT PRODUCOES LTDA</div></div></div></div></div></body></html>
+</script></div></div><div class="mt-12 text-center" style="color: #888; font-size: 10px; font-family: sans-serif; opacity: 0.6; letter-spacing: 0.5px; margin-top: 40px; padding-bottom: 20px;">44.997.331/0001-13<br/>FICTUS CONTENT PRODUCOES LTDA</div></div></div></div></div><script>
+(function() {
+    const sliders = document.querySelectorAll('.overflow-x-auto');
+    sliders.forEach(slider => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let dragged = false;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            dragged = false;
+            slider.style.cursor = 'grabbing';
+            slider.style.scrollSnapType = 'none';
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.style.cursor = '';
+            slider.style.scrollSnapType = 'x mandatory';
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.cursor = '';
+            slider.style.scrollSnapType = 'x mandatory';
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            if (Math.abs(walk) > 5) dragged = true;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+        slider.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', (e) => {
+                if (dragged) e.preventDefault();
+            });
+        });
+    });
+})();
+</script>
+</body></html>
