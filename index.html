@@ -190,15 +190,29 @@ html,body{opacity:1!important;visibility:visible!important}
 <div class="flex overflow-x-auto gap-3 snap-x snap-mandatory pb-4 w-[calc(100%+2.5rem)] -ml-5 px-5" style="scrollbar-width: none; -ms-overflow-style: none;"><style>
 /* Esconde no celular */
 @media (hover: none) and (pointer: coarse) {
-    .overflow-x-auto::-webkit-scrollbar { display: none; }
-    .overflow-x-auto { -ms-overflow-style: none; scrollbar-width: none; }
+    .overflow-x-auto::-webkit-scrollbar { display: none !important; }
+    .overflow-x-auto { -ms-overflow-style: none !important; scrollbar-width: none !important; }
 }
-/* Mostra uma barra fininha e elegante no computador */
+/* Mostra uma barra de rolagem obrigatoriamente no computador */
 @media (hover: hover) and (pointer: fine) {
-    .overflow-x-auto::-webkit-scrollbar { height: 6px; }
-    .overflow-x-auto::-webkit-scrollbar-track { background: transparent; }
-    .overflow-x-auto::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 10px; }
-    .overflow-x-auto::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.4); }
+    .overflow-x-auto::-webkit-scrollbar { 
+        display: block !important; 
+        height: 10px !important; 
+        -webkit-appearance: none !important;
+    }
+    .overflow-x-auto::-webkit-scrollbar-track { 
+        background: rgba(0,0,0,0.05) !important; 
+        border-radius: 10px !important; 
+        margin: 0 10px;
+    }
+    .overflow-x-auto::-webkit-scrollbar-thumb { 
+        background: rgba(0,0,0,0.3) !important; 
+        border-radius: 10px !important; 
+        border: 2px solid #FAF9F7;
+    }
+    .overflow-x-auto::-webkit-scrollbar-thumb:hover { 
+        background: rgba(0,0,0,0.5) !important; 
+    }
 }
 </style>
 <a class="snap-start flex-none flex flex-col transition-transform hover:scale-[1.02] bg-white overflow-hidden" href="https://mzve10.rodrigobaiao.com/" rel="noopener noreferrer" style="width: 140px; min-width: 140px; border-radius: 24px; border: 1.5px solid rgba(0,0,0,0.1); box-shadow: 0 8px 24px rgba(0,0,0,0.15);" target="_blank">
